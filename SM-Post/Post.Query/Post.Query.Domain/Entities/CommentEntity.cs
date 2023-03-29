@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace Post.Query.Domain.Entities
 {
     [Table("Comment")]
     public class CommentEntity
     {
+        [Key]
         public Guid CommentId { get; set; }
         public string Username { get; set; }
         public DateTime CommentDate { get; set; }
