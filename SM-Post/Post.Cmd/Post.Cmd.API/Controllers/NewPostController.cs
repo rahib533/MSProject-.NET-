@@ -22,10 +22,10 @@ namespace Post.Cmd.API.Controllers
         [HttpPost]
         public async Task<IActionResult> NewPostAsync(NewPostCommand command)
         {
-            var id = Guid.NewGuid();
+            //var id = Guid.NewGuid();
             try
             {
-                command.Id = id;
+                //command.Id = id;
                 await _commandDispatcher.SendAsync(command);
 
                 return StatusCode(StatusCodes.Status201Created, new NewPostResponse
@@ -48,7 +48,8 @@ namespace Post.Cmd.API.Controllers
 
                 return StatusCode(StatusCodes.Status500InternalServerError, new NewPostResponse
                 {
-                    Id = id,
+                    //Id = id,
+                    Id = command.Id,
                     Message = SAFE_ERROR_MESSAGE
                 });
             }
